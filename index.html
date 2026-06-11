@@ -111,28 +111,23 @@
             z-index: 999;
         }
 
-        /* --- 第一區：Hero Banner --- */
+        /* --- 第一區：Hero Banner (修正：讓大圖在手機上完全不被裁切) --- */
         .hero-section {
-            position: relative;
             width: 100%;
             max-width: 100%;
             margin: 0 auto;
             overflow: hidden;
-            display: flex;
-            justify-content: center;
         }
 
         .hero-image {
             width: 100%;
-            height: auto;
-            max-height: 85vh;
-            object-fit: cover;
+            height: auto; /* 高度自動按比例延伸，絕不裁切圖片 */
             display: block;
         }
 
         /* --- 第二區：活動介紹 --- */
         .intro-section {
-            padding-top: 80px;
+            padding-top: 60px;
         }
 
         /* --- 第三區：活動亮點 --- */
@@ -615,32 +610,26 @@
     </div>
 
     <script>
-        // 您的 Google Apps Script 部署網址
         const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbxXXixKoOcq2_GbPrQs6Hba5p2iagMOBz-cy65mpQXmB-7Q_U-FOzA_rk8E8_zmZ0Ri/exec";
 
         document.getElementById('appointmentForm').addEventListener('submit', function(e) {
             e.preventDefault();
             
             const submitBtn = document.getElementById('submitBtn');
-            
-            // 變更按鈕狀態，防止重複點擊
             submitBtn.disabled = true;
             submitBtn.innerText = "預約傳送中...";
             
-            // 1. 蒐集表單欄位資料
             const name = document.getElementById('name').value;
             const phone = document.getElementById('phone').value;
             const store = document.getElementById('store').value;
             const date = document.getElementById('date').value;
             
-            // 2. 蒐集複選框資料
             const troubles = [];
             const checkedBoxes = document.querySelectorAll('.checkbox-input:checked');
             checkedBoxes.forEach(function(checkbox) {
                 troubles.push(checkbox.value);
             });
             
-            // 3. 打包資料 (移除 size，新增 date)
             const formData = {
                 name: name,
                 phone: phone,
@@ -649,7 +638,6 @@
                 troubles: troubles
             };
             
-            // 4. 發送至 Google Apps Script
             fetch(WEB_APP_URL, {
                 method: "POST",
                 mode: "no-cors",
@@ -660,8 +648,6 @@
             })
             .then(response => {
                 alert(`謝謝妳的預約，${name}！\n您的舒適試穿申請已成功傳送。\n我們已收到您的資料，專人將會盡快與妳聯絡確認時間。`);
-                
-                // 成功後重設表單與還原按鈕
                 document.getElementById('appointmentForm').reset();
                 submitBtn.disabled = false;
                 submitBtn.innerText = "送出預約";
