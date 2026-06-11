@@ -94,41 +94,38 @@
             transform: none;
         }
 
-        /* --- 第一區：Hero Banner --- */
+        /* --- 第一區：Hero Banner (修正圖片擠壓與跑出畫面問題) --- */
         .hero-section {
             position: relative;
-            padding: 0;
+            width: 100%;
             max-width: 100%;
-            height: 80vh;
-            min-height: 500px;
+            margin: 0 auto;
+            overflow: hidden;
             display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            align-items: center;
-            padding-bottom: 80px;
-            background: linear-gradient(to bottom, rgba(248,245,242,0.1), rgba(248,245,242,0.8)), url('hero.jpg') center/cover no-repeat;
+            justify-content: center;
+        }
+
+        .hero-image {
+            width: 100%;
+            height: auto;
+            max-height: 85vh; /* 避免在寬螢幕上無限放大 */
+            object-fit: cover;
+            display: block;
+        }
+
+        .hero-btn-container {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            text-align: center;
+            z-index: 10;
         }
 
         /* --- 第二區：活動介紹 --- */
         .intro-section {
-            padding-top: 100px;
-        }
-        .intro-highlight {
-            background-color: var(--white);
-            padding: 32px 24px;
-            border-radius: 24px;
-            display: inline-block;
-            max-width: 600px;
-            width: 100%;
-            box-shadow: var(--shadow-soft);
-            margin-top: 20px;
-        }
-        .intro-highlight p {
-            color: var(--color-milk-tea);
-            font-size: 1.2rem;
-            font-weight: 700;
-            margin: 12px 0;
-            letter-spacing: 1px;
+            padding-top: 80px;
         }
 
         /* --- 第三區：活動亮點 --- */
@@ -411,9 +408,8 @@
             section {
                 padding: 60px 20px;
             }
-            .hero-section {
-                height: 60vh;
-                padding-bottom: 40px;
+            .hero-btn-container {
+                bottom: 24px;
             }
             .section-title {
                 font-size: 1.75rem;
@@ -431,17 +427,15 @@
 <body>
 
     <header class="hero-section">
-        <a href="#form" class="btn-capsule">立即預約試穿</a>
+        <img src="hero.jpg" alt="法朵內衣 FADOU 主視覺" class="hero-image">
+        <div class="hero-btn-container">
+            <a href="#form" class="btn-capsule">立即預約試穿</a>
+        </div>
     </header>
 
     <section class="intro-section">
         <h2 class="section-title">法朵舒適試穿計畫</h2>
         <p class="section-subtitle">妳真的穿對尺寸了嗎？<br>免費尺寸測量 × 專人試穿建議</p>
-        
-        <div class="intro-highlight">
-            <p>完成試穿送法朵專屬內衣洗衣袋</p>
-            <p>再享30天內回店滿1200折50元優惠</p>
-        </div>
     </section>
 
     <section style="background-color: rgba(239, 233, 228, 0.3); max-width: 100%;">
@@ -508,35 +502,35 @@
                     <div class="store-name">西門店</div>
                     <div class="store-address">台南市中西區西門路二段159號</div>
                 </div>
-                <a href="https://maps.google.com/?q=台南市中西區西門路二段159號" target="_blank" class="btn-map">查看地圖</a>
+                <a href="https://maps.google.com" target="_blank" class="btn-map">查看地圖</a>
             </div>
             <div class="store-card">
                 <div>
                     <div class="store-name">崇德店</div>
                     <div class="store-address">台南市東區崇德路579號</div>
                 </div>
-                <a href="https://maps.google.com/?q=台南市東區崇德路579號" target="_blank" class="btn-map">查看地圖</a>
+                <a href="https://maps.google.com" target="_blank" class="btn-map">查看地圖</a>
             </div>
             <div class="store-card">
                 <div>
                     <div class="store-name">安平店</div>
                     <div class="store-address">台南市安平區平通路421號</div>
                 </div>
-                <a href="https://maps.google.com/?q=台南市安平區平通路421號" target="_blank" class="btn-map">查看地圖</a>
+                <a href="https://maps.google.com" target="_blank" class="btn-map">查看地圖</a>
             </div>
             <div class="store-card">
                 <div>
                     <div class="store-name">青年店</div>
                     <div class="store-address">台南市東區青年路277號</div>
                 </div>
-                <a href="https://maps.google.com/?q=台南市東區青年路277號" target="_blank" class="btn-map">查看地圖</a>
+                <a href="https://maps.google.com" target="_blank" class="btn-map">查看地圖</a>
             </div>
             <div class="store-card">
                 <div>
                     <div class="store-name">善化店</div>
                     <div class="store-address">台南市善化區中山路125號</div>
                 </div>
-                <a href="https://maps.google.com/?q=台南市善化區中山路125號" target="_blank" class="btn-map">查看地圖</a>
+                <a href="https://maps.google.com" target="_blank" class="btn-map">查看地圖</a>
             </div>
         </div>
     </section>
@@ -554,7 +548,7 @@
                 
                 <div class="form-group">
                     <label class="form-label" for="phone">手機號碼</label>
-                    <input type="tel" id="phone" class="form-control" placeholder="請輸入您的手機號碼" required>
+                    <input type="tel" id="phone" class="form-control" placeholder="請輸入您的手機號碼" inputmode="numeric" pattern="[0-9]*" required>
                 </div>
                 
                 <div class="form-group">
@@ -568,10 +562,10 @@
                         <option value="善化店">善化店</option>
                     </select>
                 </div>
-                
+
                 <div class="form-group">
-                    <label class="form-label" for="size">目前穿著尺寸</label>
-                    <input type="text" id="size" class="form-control" placeholder="例如 75C" required>
+                    <label class="form-label" for="date">預約日期</label>
+                    <input type="date" id="date" class="form-control" required>
                 </div>
                 
                 <div class="form-group">
@@ -628,39 +622,38 @@
             submitBtn.disabled = true;
             submitBtn.innerText = "預約傳送中...";
             
-            // 1. 蒐集表單基本欄位資料
+            // 1. 蒐集表單欄位資料
             const name = document.getElementById('name').value;
             const phone = document.getElementById('phone').value;
             const store = document.getElementById('store').value;
-            const size = document.getElementById('size').value;
+            const date = document.getElementById('date').value;
             
-            // 2. 蒐集複選框（穿著困擾）資料
+            // 2. 蒐集複選框資料
             const troubles = [];
             const checkedBoxes = document.querySelectorAll('.checkbox-input:checked');
             checkedBoxes.forEach(function(checkbox) {
                 troubles.push(checkbox.value);
             });
             
-            // 3. 打包成 JSON 資料物件
+            // 3. 打包資料
             const formData = {
                 name: name,
                 phone: phone,
                 store: store,
-                size: size,
+                date: date,
                 troubles: troubles
             };
             
-            // 4. 使用原生 fetch 透過 POST 發送至 Google Apps Script 
+            // 4. 發送至 Google Apps Script
             fetch(WEB_APP_URL, {
                 method: "POST",
-                mode: "no-cors", // 跨網域封裝
+                mode: "no-cors",
                 headers: {
                     "Content-Type": "application/json"
                 },
                 body: JSON.stringify(formData)
             })
             .then(response => {
-                // 因使用 no-cors 模式，在此直接視為傳送完成
                 alert(`謝謝妳的預約，${name}！\n您的舒適試穿申請已成功傳送。\n我們已收到您的資料，專人將會盡快與妳聯絡確認時間。`);
                 
                 // 成功後重設表單與還原按鈕
