@@ -111,7 +111,7 @@
             z-index: 999;
         }
 
-        /* --- 第一區：Hero Banner (修正：讓大圖在手機上完全不被裁切) --- */
+        /* --- 第一區：Hero Banner --- */
         .hero-section {
             width: 100%;
             max-width: 100%;
@@ -121,14 +121,14 @@
 
         .hero-image {
             width: 100%;
-            height: auto; /* 高度自動按比例延伸，絕不裁切圖片 */
+            height: auto;
             display: block;
         }
 
-             /* --- 第二區：活動介紹 --- */
+        /* --- 第二區：活動介紹 (同時調緊大圖與下方的間距) --- */
         .intro-section {
-            padding-top: 20px;    /* 保持與大圖近距離 */
-            padding-bottom: 0px;  /* 把下方的空白縮小到 0 */
+            padding-top: 20px; 
+            padding-bottom: 10px; /* 從原本預設的 80px 大幅縮小，消除下方大塊空白 */
         }
 
         /* --- 第三區：活動亮點 --- */
@@ -409,7 +409,7 @@
         /* --- RWD 響應式微調 --- */
         @media (max-width: 768px) {
             section {
-                padding: 60px 20px;
+                padding: 40px 20px; /* 手機版全域縮小上下內距 */
             }
             .section-title {
                 font-size: 1.75rem;
@@ -432,11 +432,11 @@
 
     <section class="intro-section">
         <h2 class="section-title">法朵舒適試穿計畫</h2>
-        <p class="section-subtitle">妳真的穿對尺寸了嗎？<br>免費尺寸測量 × 專人試穿建議</p>
+        <p class="section-subtitle" style="margin-bottom: 0;">妳真的穿對尺寸了嗎？<br>免費尺寸測量 × 專人試穿建議</p>
     </section>
 
-    <section style="background-color: rgba(239, 233, 228, 0.3); max-width: 100%;">
-        <div style="max-width: 1200px; margin: 0 auto; padding: 20px;">
+    <section style="background-color: rgba(239, 233, 228, 0.3); max-width: 100%; padding-top: 35px;">
+        <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
             <h2 class="section-title">活動亮點</h2>
             <p class="section-subtitle">客製化的貼心服務，尋找妳的完美比例</p>
             
