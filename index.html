@@ -40,6 +40,8 @@
             color: var(--text-dark);
             line-height: 1.6;
             overflow-x: hidden;
+            /* 幫網頁最底部留空間，避免內容被懸浮按鈕擋住 */
+            padding-bottom: 100px;
         }
 
         /* --- 通用樣式 --- */
@@ -65,20 +67,23 @@
             letter-spacing: 1px;
         }
 
+        /* 縮小後的精緻膠囊按鈕 */
         .btn-capsule {
             display: inline-block;
             background-color: var(--color-milk-tea);
             color: var(--white);
-            padding: 14px 48px;
+            padding: 12px 36px;
             border-radius: 50px;
             text-decoration: none;
-            font-size: 1.1rem;
+            font-size: 1rem;
             font-weight: 500;
             letter-spacing: 2px;
             border: none;
             cursor: pointer;
             box-shadow: 0 4px 15px rgba(184, 142, 117, 0.3);
             transition: var(--transition);
+            width: 90%;
+            max-width: 340px;
         }
 
         .btn-capsule:hover {
@@ -94,7 +99,19 @@
             transform: none;
         }
 
-        /* --- 第一區：Hero Banner (修正圖片擠壓與跑出畫面問題) --- */
+        /* 底部固定懸浮容器 */
+        .btn-floating-container {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: linear-gradient(to top, rgba(248, 245, 242, 0.95) 70%, rgba(248, 245, 242, 0));
+            padding: 16px 20px 24px 20px;
+            text-align: center;
+            z-index: 999;
+        }
+
+        /* --- 第一區：Hero Banner --- */
         .hero-section {
             position: relative;
             width: 100%;
@@ -108,19 +125,9 @@
         .hero-image {
             width: 100%;
             height: auto;
-            max-height: 85vh; /* 避免在寬螢幕上無限放大 */
+            max-height: 85vh;
             object-fit: cover;
             display: block;
-        }
-
-        .hero-btn-container {
-            position: absolute;
-            bottom: 40px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100%;
-            text-align: center;
-            z-index: 10;
         }
 
         /* --- 第二區：活動介紹 --- */
@@ -408,9 +415,6 @@
             section {
                 padding: 60px 20px;
             }
-            .hero-btn-container {
-                bottom: 24px;
-            }
             .section-title {
                 font-size: 1.75rem;
             }
@@ -428,9 +432,6 @@
 
     <header class="hero-section">
         <img src="hero.jpg" alt="法朵內衣 FADOU 主視覺" class="hero-image">
-        <div class="hero-btn-container">
-            <a href="#form" class="btn-capsule">立即預約試穿</a>
-        </div>
     </header>
 
     <section class="intro-section">
@@ -609,6 +610,10 @@
         <p>法朵內衣・FADOU｜100%台灣製</p>
     </footer>
 
+    <div class="btn-floating-container">
+        <a href="#form" class="btn-capsule">立即預約試穿</a>
+    </div>
+
     <script>
         // 您的 Google Apps Script 部署網址
         const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbxXXixKoOcq2_GbPrQs6Hba5p2iagMOBz-cy65mpQXmB-7Q_U-FOzA_rk8E8_zmZ0Ri/exec";
@@ -635,7 +640,7 @@
                 troubles.push(checkbox.value);
             });
             
-            // 3. 打包資料
+            // 3. 打包資料 (移除 size，新增 date)
             const formData = {
                 name: name,
                 phone: phone,
