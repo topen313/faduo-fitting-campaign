@@ -60,11 +60,14 @@
             letter-spacing: 5px;
         }
 
-        .section-subtitle {
-            font-size: 0.95rem;
-            color: var(--text-light);
-            margin-bottom: 30px;
-            letter-spacing: 3px;
+       .section-subtitle {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans TC", "Microsoft JhengHei", sans-serif; /* 確保在 iPhone 和 Android 上都完美不缺字 */
+    font-size: 0.95rem; /* 順便保持妳剛剛調整的小字級質感 */
+    color: var(--text-light);
+    margin-bottom: 30px; /* 順便把原本 48px 的大空白縮小一點，看起來更緊湊 */
+    letter-spacing: 1px;
+    font-weight: 400; /* 讓字體維持纖細優雅的感覺 */
+}
         }
 
         /* 縮小後的精緻膠囊按鈕 */
