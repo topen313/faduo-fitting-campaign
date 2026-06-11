@@ -1,7 +1,11 @@
-{
+*{
     margin:0;
     padding:0;
     box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
 }
 
 body{
@@ -11,7 +15,7 @@ body{
     line-height:1.8;
 }
 
-/ Hero /
+/* Hero */
 
 .hero{
     padding:0;
@@ -22,7 +26,33 @@ body{
     display:block;
 }
 
-/ 區塊 /
+/* Hero CTA */
+
+.hero-cta{
+    text-align:center;
+    margin-top:-35px;
+    margin-bottom:50px;
+}
+
+.cta-button{
+    display:inline-block;
+    background:#b88e75;
+    color:white;
+    text-decoration:none;
+    padding:16px 42px;
+    border-radius:999px;
+    font-size:18px;
+    font-weight:600;
+    box-shadow:0 10px 20px rgba(184,142,117,.25);
+    transition:.3s;
+}
+
+.cta-button:hover{
+    opacity:.9;
+    transform:translateY(-2px);
+}
+
+/* 區塊 */
 
 .section{
     max-width:1200px;
@@ -32,7 +62,7 @@ body{
 
 .section h2{
     text-align:center;
-    font-size:36px;
+    font-size:38px;
     margin-bottom:20px;
     color:#5b524d;
 }
@@ -44,49 +74,69 @@ body{
     font-size:18px;
 }
 
-/ 體驗內容 /
+.campaign-highlight{
+    text-align:center;
+    font-size:20px;
+    font-weight:600;
+    color:#b88e75;
+    margin-bottom:50px;
+}
+
+/* 體驗流程 */
 
 .card-grid{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-    gap:20px;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:24px;
 }
 
 .card{
-    background:#fff;
+    background:white;
     border-radius:24px;
-    padding:30px;
+    padding:35px 25px;
     text-align:center;
     border:1px solid #eee7e1;
     transition:.3s;
 }
 
 .card:hover{
-    transform:translateY(-4px);
-    box-shadow:0 10px 25px rgba(0,0,0,.05);
+    transform:translateY(-5px);
+    box-shadow:0 12px 25px rgba(0,0,0,.05);
 }
 
 .card span{
-    font-size:32px;
+    font-size:34px;
     color:#b88e75;
 }
 
 .card h3{
     margin:15px 0;
     color:#5b524d;
+    font-size:24px;
 }
 
-/ 淺色背景區 /
+/* 淺色背景區 */
 
 .bg{
     background:#efe9e4;
     border-radius:30px;
+    margin-top:40px;
+    margin-bottom:40px;
 }
 
-/ 來店禮 /
+/* 來店禮 */
 
 .gift{
     text-align:center;
+}
+
+.gift-image{
+    width:100%;
+    max-width:350px;
+    display:block;
+    margin:30px auto;
+    border-radius:20px;
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
 }
 
 .gift h3{
@@ -94,7 +144,7 @@ body{
     margin-bottom:10px;
 }
 
-/ 回饋禮 /
+/* 回饋禮 */
 
 .reward-box{
     background:white;
@@ -113,14 +163,14 @@ body{
 
 .reward-box strong{
     color:#b88e75;
-    font-size:20px;
+    font-size:22px;
 }
 
-/ 門市 /
+/* 門市 */
 
 .store-grid{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
     gap:20px;
 }
 
@@ -134,7 +184,7 @@ body{
 }
 
 .store-card:hover{
-    transform:translateY(-4px);
+    transform:translateY(-5px);
     box-shadow:0 10px 25px rgba(0,0,0,.05);
 }
 
@@ -143,14 +193,30 @@ body{
     margin-bottom:10px;
 }
 
-/ 表單 /
+.map-btn{
+    display:inline-block;
+    margin-top:12px;
+    padding:8px 16px;
+    border-radius:999px;
+    background:#f3ece6;
+    color:#8a6f5a;
+    text-decoration:none;
+    font-size:14px;
+    transition:.2s;
+}
+
+.map-btn:hover{
+    background:#e8ddd5;
+}
+
+/* 表單 */
 
 .form-section{
     max-width:850px;
 }
 
 .form-section h3{
-    margin-top:30px;
+    margin-top:25px;
     margin-bottom:12px;
     color:#5b524d;
     font-size:18px;
@@ -178,13 +244,13 @@ select:focus{
     border-color:#b88e75;
 }
 
-/ Checkbox /
+/* Checkbox */
 
 .checkbox-group{
     display:flex;
     flex-direction:column;
     gap:12px;
-    margin:10px 0 20px;
+    margin:15px 0;
 }
 
 .checkbox-item{
@@ -192,9 +258,9 @@ select:focus{
     align-items:center;
     gap:12px;
     background:white;
-    padding:16px;
-    border-radius:14px;
     border:1px solid #eee7e1;
+    border-radius:14px;
+    padding:16px;
     cursor:pointer;
     transition:.2s;
 }
@@ -214,16 +280,17 @@ select:focus{
     flex:1;
 }
 
-/ 按鈕 /
+/* 按鈕 */
 
 button{
     background:#b88e75;
     color:white;
     border:none;
-    padding:16px;
+    padding:18px;
     border-radius:14px;
     cursor:pointer;
     font-size:18px;
+    font-weight:600;
     transition:.3s;
 }
 
@@ -231,7 +298,7 @@ button:hover{
     opacity:.9;
 }
 
-/ Footer /
+/* Footer */
 
 footer{
     background:#efe9e4;
@@ -241,25 +308,37 @@ footer{
     margin-top:60px;
 }
 
-/ 手機版 */
+/* 手機版 */
 
 @media(max-width:768px){
+
+    .hero-cta{
+        margin-top:-20px;
+    }
 
     .section{
         padding:60px 20px;
     }
 
     .section h2{
-        font-size:28px;
+        font-size:30px;
     }
 
     .section-subtitle{
         font-size:16px;
     }
 
+    .campaign-highlight{
+        font-size:18px;
+    }
+
     .card-grid,
     .store-grid{
         grid-template-columns:1fr;
+    }
+
+    .reward-box{
+        padding:30px 20px;
     }
 
 }
