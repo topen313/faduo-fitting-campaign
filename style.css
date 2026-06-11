@@ -1,4 +1,4 @@
-*{
+{
     margin:0;
     padding:0;
     box-sizing:border-box;
@@ -11,7 +11,7 @@ body{
     line-height:1.8;
 }
 
-/* Hero */
+/ Hero /
 
 .hero{
     padding:0;
@@ -22,7 +22,7 @@ body{
     display:block;
 }
 
-/* 區塊 */
+/ 區塊 /
 
 .section{
     max-width:1200px;
@@ -44,11 +44,11 @@ body{
     font-size:18px;
 }
 
-/* 體驗內容卡片 */
+/ 體驗內容 /
 
 .card-grid{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
     gap:20px;
 }
 
@@ -58,10 +58,16 @@ body{
     padding:30px;
     text-align:center;
     border:1px solid #eee7e1;
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-4px);
+    box-shadow:0 10px 25px rgba(0,0,0,.05);
 }
 
 .card span{
-    font-size:30px;
+    font-size:32px;
     color:#b88e75;
 }
 
@@ -70,28 +76,14 @@ body{
     color:#5b524d;
 }
 
-/* 背景區 */
+/ 淺色背景區 /
 
 .bg{
     background:#efe9e4;
+    border-radius:30px;
 }
 
-/* 困擾列表 */
-
-.problem-list{
-    max-width:500px;
-    margin:auto;
-    list-style:none;
-}
-
-.problem-list li{
-    background:white;
-    margin-bottom:12px;
-    padding:14px 20px;
-    border-radius:14px;
-}
-
-/* 來店禮 */
+/ 來店禮 /
 
 .gift{
     text-align:center;
@@ -102,7 +94,7 @@ body{
     margin-bottom:10px;
 }
 
-/* 回饋禮 */
+/ 回饋禮 /
 
 .reward-box{
     background:white;
@@ -111,6 +103,7 @@ body{
     padding:40px;
     border-radius:24px;
     text-align:center;
+    box-shadow:0 5px 20px rgba(0,0,0,.04);
 }
 
 .reward-box h3{
@@ -123,11 +116,11 @@ body{
     font-size:20px;
 }
 
-/* 門市 */
+/ 門市 /
 
 .store-grid{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
     gap:20px;
 }
 
@@ -137,11 +130,11 @@ body{
     padding:25px;
     text-align:center;
     border:1px solid #eee7e1;
-    transition:all .3s ease;
+    transition:.3s;
 }
 
 .store-card:hover{
-    transform:translateY(-5px);
+    transform:translateY(-4px);
     box-shadow:0 10px 25px rgba(0,0,0,.05);
 }
 
@@ -150,10 +143,17 @@ body{
     margin-bottom:10px;
 }
 
-/* 表單 */
+/ 表單 /
 
 .form-section{
-    max-width:800px;
+    max-width:850px;
+}
+
+.form-section h3{
+    margin-top:30px;
+    margin-bottom:12px;
+    color:#5b524d;
+    font-size:18px;
 }
 
 form{
@@ -169,7 +169,52 @@ select{
     border:1px solid #ddd;
     border-radius:14px;
     font-size:16px;
+    background:white;
 }
+
+input:focus,
+select:focus{
+    outline:none;
+    border-color:#b88e75;
+}
+
+/ Checkbox /
+
+.checkbox-group{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+    margin:10px 0 20px;
+}
+
+.checkbox-item{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    background:white;
+    padding:16px;
+    border-radius:14px;
+    border:1px solid #eee7e1;
+    cursor:pointer;
+    transition:.2s;
+}
+
+.checkbox-item:hover{
+    background:#fcfaf8;
+}
+
+.checkbox-item input[type="checkbox"]{
+    width:20px;
+    height:20px;
+    margin:0;
+    flex-shrink:0;
+}
+
+.checkbox-item span{
+    flex:1;
+}
+
+/ 按鈕 /
 
 button{
     background:#b88e75;
@@ -186,16 +231,17 @@ button:hover{
     opacity:.9;
 }
 
-/* Footer */
+/ Footer /
 
 footer{
     background:#efe9e4;
     text-align:center;
     padding:40px 20px;
     color:#7d726b;
+    margin-top:60px;
 }
 
-/* 手機版 */
+/ 手機版 */
 
 @media(max-width:768px){
 
@@ -211,31 +257,9 @@ footer{
         font-size:16px;
     }
 
-}
-.checkbox-group{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:12px;
-    margin:20px 0 30px;
-}
+    .card-grid,
+    .store-grid{
+        grid-template-columns:1fr;
+    }
 
-.checkbox-item{
-    display:flex;
-    align-items:center;
-    gap:12px;
-    background:white;
-    padding:16px;
-    border-radius:14px;
-    border:1px solid #eee7e1;
-    cursor:pointer;
-}
-
-.checkbox-item input[type="checkbox"]{
-    width:auto !important;
-    margin:0;
-    transform:scale(1.2);
-}
-
-.checkbox-item span{
-    flex:1;
 }
